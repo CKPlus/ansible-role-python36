@@ -1,5 +1,8 @@
 ---
 # tasks file for ansible-role-python36
+- name: Reset locales
+  include: reset-locale.yml
+
 - name: Set ntp
   include: ntp.yml
 

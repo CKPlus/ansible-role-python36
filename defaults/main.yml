@@ -1,6 +1,11 @@
 ---
 # defaults file for ansible-role-python36
 
+# Reset locale - default locale
+locale: "en_US.UTF-8"
+# Reset locale - stop accepting locale env vars from your client to the server?
+locale_stop: True
+
 
 # ntp default
 ntp_enabled: true
