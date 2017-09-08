@@ -15,7 +15,7 @@ Vagrant.configure(2) do |config|
   config.vm.provision "ansible" do |ansible|
     ansible.playbook = "playbook.yml"
     ansible.verbose = "vvv"
-    ansible.galaxy_roles_path = "/Users/ericyu/Documents/workspace/ansible-role-python36/ansible_test/role"
+    ansible.galaxy_roles_path = "./role"
 
   end
 
