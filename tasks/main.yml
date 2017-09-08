@@ -1,2 +1,25 @@
 ---
 # tasks file for ansible-role-python36
+- name: Set ntp
+  include: ntp.yml
+
+- name: Install Tool to add PPA
+  apt: name={{ item }} state=present update_cache=yes
+  with_items:
+    - software-properties-common
+
+- name: Add PPA for Python 3.6+
+  shell: add-apt-repository --yes {{ item }}
+  with_items:
+    - ppa:jonathonf/python-3.6
+
+- name: Install Required Packages
+  apt: name={{ item }} state=present update_cache=yes
+  with_items:
+    - python3.6
+    - python3.6-dev
+    - python3.6-venv
+    - build-essential
+    - libffi-dev
+    - libssl-dev
+    - libxml2-dev
